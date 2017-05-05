@@ -42,6 +42,16 @@ export enum ChordType{
     Major,Minor, M7, Major7, Minor7 
 }
 
+export class ChordChange{
+    public Chord;
+    public Length: number;
+
+    constructor(chord,length:number){
+        this.Chord = chord;
+        this.Length = length;
+    }
+}
+
 export function MakeChord(root,type: ChordType){
 
 	var intRoot = GetNoteNumber(root);
@@ -119,7 +129,7 @@ export function AddRhythmPattern(track,strPattern: string, note: number){
 }
 
 export enum ScaleType{
-    Major, Minor, MinorPentatonic, MajorPentatonic, Blues
+    Major, Minor, MinorPentatonic, MajorPentatonic, Blues, Spanish
 }
 
 export function MakeScale(note, type: ScaleType, octaves: number){
@@ -188,6 +198,37 @@ export function MakeScale(note, type: ScaleType, octaves: number){
         }
 
     }
+    else if(type == ScaleType.Spanish){
+        var currentNote = intStartNote;
+        scale.push(currentNote);
+
+        var k;
+        for(k=0; k<octaves; k++){
+
+            currentNote = currentNote + 1;
+            scale.push(currentNote);
+
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+            
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+
+            currentNote = currentNote + 1;
+            scale.push(currentNote);
+
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+        }
+
+    }
+
     else if(type == ScaleType.MinorPentatonic){
         var currentNote = intStartNote;
         scale.push(currentNote);

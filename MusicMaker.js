@@ -48,6 +48,14 @@ var ChordType;
     ChordType[ChordType["Major7"] = 3] = "Major7";
     ChordType[ChordType["Minor7"] = 4] = "Minor7";
 })(ChordType = exports.ChordType || (exports.ChordType = {}));
+var ChordChange = (function () {
+    function ChordChange(chord, length) {
+        this.Chord = chord;
+        this.Length = length;
+    }
+    return ChordChange;
+}());
+exports.ChordChange = ChordChange;
 function MakeChord(root, type) {
     var intRoot = GetNoteNumber(root);
     var aChord = new Array();
@@ -117,6 +125,7 @@ var ScaleType;
     ScaleType[ScaleType["MinorPentatonic"] = 2] = "MinorPentatonic";
     ScaleType[ScaleType["MajorPentatonic"] = 3] = "MajorPentatonic";
     ScaleType[ScaleType["Blues"] = 4] = "Blues";
+    ScaleType[ScaleType["Spanish"] = 5] = "Spanish";
 })(ScaleType = exports.ScaleType || (exports.ScaleType = {}));
 function MakeScale(note, type, octaves) {
     var intStartNote = GetNoteNumber(note);
@@ -158,6 +167,27 @@ function MakeScale(note, type, octaves) {
             currentNote = currentNote + 1;
             scale.push(currentNote);
             currentNote = currentNote + 2;
+            scale.push(currentNote);
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+        }
+    }
+    else if (type == ScaleType.Spanish) {
+        var currentNote = intStartNote;
+        scale.push(currentNote);
+        var k;
+        for (k = 0; k < octaves; k++) {
+            currentNote = currentNote + 1;
+            scale.push(currentNote);
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+            currentNote = currentNote + 2;
+            scale.push(currentNote);
+            currentNote = currentNote + 1;
             scale.push(currentNote);
             currentNote = currentNote + 2;
             scale.push(currentNote);
