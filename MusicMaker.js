@@ -1,7 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 exports.__esModule = true;
 var Util = require('jsmidgen').Util;
-exports.Beat = 128;
+exports.beat = 128;
 var DrumNotes = (function () {
     function DrumNotes() {
     }
@@ -29,6 +39,140 @@ DrumNotes.Timbale1 = 65;
 DrumNotes.Timbale2 = 66;
 DrumNotes.CowBell = 56;
 exports.DrumNotes = DrumNotes;
+var Instruments = (function () {
+    function Instruments() {
+    }
+    return Instruments;
+}());
+Instruments.AcousticGrandPiano = 0;
+Instruments.BrightAcousticPiano = 1;
+Instruments.ElectricGrandPiano = 2;
+Instruments.Honk3tonkPiano = 3;
+Instruments.ElectricPiano1 = 4;
+Instruments.ElectricPiano2 = 5;
+Instruments.Harpsichord = 6;
+Instruments.Clavi = 7;
+Instruments.Celesta = 8;
+Instruments.Glockenspiel = 9;
+Instruments.MusicBox = 10;
+Instruments.Vibraphone = 11;
+Instruments.Marimba = 12;
+Instruments.X13lophone = 13;
+Instruments.TubularBells = 14;
+Instruments.Dulcimer = 15;
+Instruments.DrawbarOrgan = 16;
+Instruments.PercussiveOrgan = 17;
+Instruments.RockOrgan = 18;
+Instruments.ChurchOrgan = 19;
+Instruments.ReedOrgan = 20;
+Instruments.Accordion = 21;
+Instruments.Harmonica = 22;
+Instruments.TangoAccordion = 23;
+Instruments.AcousticGuitarN24lon = 24;
+Instruments.AcousticGuitarSteel = 25;
+Instruments.ElectricGuitarJazz = 26;
+Instruments.ElectricGuitarClean = 27;
+Instruments.ElectricGuitarMuted = 28;
+Instruments.OverdrivenGuitar = 29;
+Instruments.DistortionGuitar = 30;
+Instruments.Guitarharmonics = 31;
+Instruments.AcousticBass = 32;
+Instruments.ElectricBassfinger = 33;
+Instruments.ElectricBasspick = 34;
+Instruments.FretlessBass = 35;
+Instruments.SlapBass1 = 36;
+Instruments.SlapBass2 = 37;
+Instruments.S38nthBass1 = 38;
+Instruments.S39nthBass2 = 39;
+Instruments.Violin = 40;
+Instruments.Viola = 41;
+Instruments.Cello = 42;
+Instruments.Contrabass = 43;
+Instruments.TremoloStrings = 44;
+Instruments.PizzicatoStrings = 45;
+Instruments.OrchestralHarp = 46;
+Instruments.Timpani = 47;
+Instruments.StringEnsemble1 = 48;
+Instruments.StringEnsemble2 = 49;
+Instruments.S50nthStrings1 = 50;
+Instruments.S51nthStrings2 = 51;
+Instruments.ChoirAahs = 52;
+Instruments.VoiceOohs = 53;
+Instruments.S54nthVoice = 54;
+Instruments.OrchestraHit = 55;
+Instruments.Trumpet = 56;
+Instruments.Trombone = 57;
+Instruments.Tuba = 58;
+Instruments.MutedTrumpet = 59;
+Instruments.FrenchHorn = 60;
+Instruments.BrassSection = 61;
+Instruments.S62nthBrass1 = 62;
+Instruments.S63nthBrass2 = 63;
+Instruments.SopranoSax = 64;
+Instruments.AltoSax = 65;
+Instruments.TenorSax = 66;
+Instruments.BaritoneSax = 67;
+Instruments.Oboe = 68;
+Instruments.EnglishHorn = 69;
+Instruments.Bassoon = 70;
+Instruments.Clarinet = 71;
+Instruments.Piccolo = 72;
+Instruments.Flute = 73;
+Instruments.Recorder = 74;
+Instruments.PanFlute = 75;
+Instruments.BlownBottle = 76;
+Instruments.Shakuhachi = 77;
+Instruments.Whistle = 78;
+Instruments.Ocarina = 79;
+Instruments.Lead1square = 80;
+Instruments.Lead2sawtooth = 81;
+Instruments.Lead3calliope = 82;
+Instruments.Lead4chiff = 83;
+Instruments.Lead5charang = 84;
+Instruments.Lead6voice = 85;
+Instruments.Lead7fifths = 86;
+Instruments.Lead8BassLead = 87;
+Instruments.Pad1newage = 88;
+Instruments.Pad2warm = 89;
+Instruments.Pad3pol90s90nth = 90;
+Instruments.Pad4choir = 91;
+Instruments.Pad5bowed = 92;
+Instruments.Pad6metallic = 93;
+Instruments.Pad7halo = 94;
+Instruments.Pad8sweep = 95;
+Instruments.FX1rain = 96;
+Instruments.FX2soundtrack = 97;
+Instruments.FX3cr98stal = 98;
+Instruments.FX4atmosphere = 99;
+Instruments.FX5brightness = 100;
+Instruments.FX6goblins = 101;
+Instruments.FX7echoes = 102;
+Instruments.FX8scifi = 103;
+Instruments.Sitar = 104;
+Instruments.Banjo = 105;
+Instruments.Shamisen = 106;
+Instruments.Koto = 107;
+Instruments.Kalimba = 108;
+Instruments.Bagpipe = 109;
+Instruments.Fiddle = 110;
+Instruments.Shanai = 111;
+Instruments.TinkleBell = 112;
+Instruments.Agogo = 113;
+Instruments.SteelDrums = 114;
+Instruments.Woodblock = 115;
+Instruments.TaikoDrum = 116;
+Instruments.MelodicTom = 117;
+Instruments.S118nthDrum = 118;
+Instruments.ReverseC119mbal = 119;
+Instruments.GuitarFretNoise = 120;
+Instruments.BreathNoise = 121;
+Instruments.Seashore = 122;
+Instruments.BirdTweet = 123;
+Instruments.TelephoneRing = 124;
+Instruments.Helicopter = 125;
+Instruments.Applause = 126;
+Instruments.Gunshot = 127;
+exports.Instruments = Instruments;
 function GetNoteNumber(aNote) {
     if (typeof (aNote) == 'number') {
         return aNote;
@@ -110,10 +254,10 @@ function AddRhythmPattern(track, strPattern, note) {
     for (i = 0; i < strPattern.length; i++) {
         var currentChar = strPattern[i];
         if (currentChar == "x") {
-            track.addNote(9, note, exports.Beat / 4);
+            track.addNote(9, note, exports.beat / 4);
         }
         else if (currentChar != "|") {
-            track.addNote(9, 0, exports.Beat / 4, 0);
+            track.addNote(9, 0, exports.beat / 4, 0);
         }
     }
 }
@@ -251,3 +395,217 @@ function MakeScale(note, type, octaves) {
     return scale;
 }
 exports.MakeScale = MakeScale;
+var AbstractChordPlayer = (function () {
+    function AbstractChordPlayer() {
+    }
+    AbstractChordPlayer.prototype.PlayFromChordChanges = function (track, chordList, channel) {
+        for (var _i = 0, chordList_1 = chordList; _i < chordList_1.length; _i++) {
+            var chordChange = chordList_1[_i];
+            if (chordChange.Length == 2) {
+                this.PlayTwoBarPattern(track, channel, chordChange);
+            }
+            else if (chordChange.Length == 4) {
+                this.PlayFourBarPattern(track, channel, chordChange);
+            }
+            else if (chordChange.Length == 3) {
+                this.PlayFourBarPattern(track, channel, chordChange);
+            }
+            else if (chordChange.Length == 1) {
+                this.PlayOneBarPattern(track, channel, chordChange);
+            }
+            else {
+                track.addChord(channel, chordChange.Chord, chordChange.Length * 128);
+            }
+        }
+    };
+    return AbstractChordPlayer;
+}());
+exports.AbstractChordPlayer = AbstractChordPlayer;
+var Arpeggio1 = (function (_super) {
+    __extends(Arpeggio1, _super);
+    function Arpeggio1() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Arpeggio1.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] + 2, exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[1], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[2], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] + 2, exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[1], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[2], exports.beat / 2);
+    };
+    Arpeggio1.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] + 2, exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[1], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[2], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] + 2, exports.beat / 2);
+    };
+    Arpeggio1.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] + 2, exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[1], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[2], exports.beat / 2);
+    };
+    Arpeggio1.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[2], exports.beat / 2);
+    };
+    return Arpeggio1;
+}(AbstractChordPlayer));
+exports.Arpeggio1 = Arpeggio1;
+var BasePLayer1 = (function (_super) {
+    __extends(BasePLayer1, _super);
+    function BasePLayer1() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.noteDelta = 24;
+        return _this;
+    }
+    BasePLayer1.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 3);
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat);
+    };
+    BasePLayer1.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 3);
+    };
+    BasePLayer1.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 2);
+    };
+    BasePLayer1.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 1);
+    };
+    return BasePLayer1;
+}(AbstractChordPlayer));
+exports.BasePLayer1 = BasePLayer1;
+var BasePLayer2 = (function (_super) {
+    __extends(BasePLayer2, _super);
+    function BasePLayer2() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.noteDelta = 24;
+        return _this;
+    }
+    BasePLayer2.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        var i = 0;
+        for (i = 0; i < 8; i++)
+            track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
+    };
+    BasePLayer2.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        var i = 0;
+        for (i = 0; i < 6; i++)
+            track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
+    };
+    BasePLayer2.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        var i;
+        for (i = 0; i < 4; i++)
+            track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
+    };
+    BasePLayer2.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
+    };
+    return BasePLayer2;
+}(AbstractChordPlayer));
+exports.BasePLayer2 = BasePLayer2;
+var RandomPlayer = (function (_super) {
+    __extends(RandomPlayer, _super);
+    function RandomPlayer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    RandomPlayer.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        var i = 0;
+        for (i = 0; i < 8; i++) {
+            track.addNote(channel, SelectRandom(chordChange.Chord), exports.beat / 2);
+        }
+    };
+    RandomPlayer.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        var i = 0;
+        for (i = 0; i < 6; i++) {
+            track.addNote(channel, SelectRandom(chordChange.Chord), exports.beat / 2);
+        }
+    };
+    RandomPlayer.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        var i;
+        for (i = 0; i < 4; i++) {
+            track.addNote(channel, SelectRandom(chordChange.Chord), exports.beat / 2);
+        }
+    };
+    RandomPlayer.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0], exports.beat / 2);
+        track.addNote(channel, chordChange.Chord[0] + 12, exports.beat / 2);
+    };
+    return RandomPlayer;
+}(AbstractChordPlayer));
+exports.RandomPlayer = RandomPlayer;
+var BasePLayer3 = (function (_super) {
+    __extends(BasePLayer3, _super);
+    function BasePLayer3() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    BasePLayer3.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat);
+    };
+    BasePLayer3.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat);
+    };
+    BasePLayer3.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 2);
+    };
+    BasePLayer3.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, chordChange.Chord[0] - 12, exports.beat);
+    };
+    return BasePLayer3;
+}(AbstractChordPlayer));
+exports.BasePLayer3 = BasePLayer3;
+var SimplePlayer = (function (_super) {
+    __extends(SimplePlayer, _super);
+    function SimplePlayer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SimplePlayer.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        track.addChord(channel, chordChange.Chord, chordChange.Length * exports.beat);
+    };
+    SimplePlayer.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        track.addChord(channel, chordChange.Chord, chordChange.Length * exports.beat);
+    };
+    SimplePlayer.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        track.addChord(channel, chordChange.Chord, chordChange.Length * exports.beat);
+    };
+    SimplePlayer.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addChord(channel, chordChange.Chord, chordChange.Length * exports.beat);
+    };
+    return SimplePlayer;
+}(AbstractChordPlayer));
+exports.SimplePlayer = SimplePlayer;
+var OffBeatPlayer = (function (_super) {
+    __extends(OffBeatPlayer, _super);
+    function OffBeatPlayer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    OffBeatPlayer.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, 0, exports.beat, 0);
+        track.addChord(channel, chordChange.Chord, exports.beat);
+        track.addNote(channel, 0, exports.beat, 0);
+        track.addChord(channel, chordChange.Chord, exports.beat);
+    };
+    OffBeatPlayer.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, 0, exports.beat, 0);
+        track.addChord(channel, chordChange.Chord, exports.beat);
+        track.addNote(channel, 0, exports.beat, 0);
+    };
+    OffBeatPlayer.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+        track.addNote(channel, 0, exports.beat, 0);
+        track.addChord(channel, chordChange.Chord, exports.beat);
+    };
+    OffBeatPlayer.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+        track.addChord(channel, chordChange.Chord, exports.beat);
+    };
+    return OffBeatPlayer;
+}(AbstractChordPlayer));
+exports.OffBeatPlayer = OffBeatPlayer;
