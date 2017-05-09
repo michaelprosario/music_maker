@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<title>welcome to {{ title }}</title>
+<style type="text/css" media="screen">
+    #editor { 
+
+	width:1024px;
+	height:800px;
+    }
+</style>
+<script src="/scripts/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/scripts/ace/ext-language_tools.js"></script>
+<script src="/scripts/jquery.min.js"></script>
+<script>
+function buildMusic(){
+	var codeData = { jscode: editor.getValue() };
+	$.ajax({
+	   type: "POST",
+	   url: "/build_music",
+	   contentType: "application/json",
+	   success: function (msg) {
+		alert("all is good")
+		alert(JSON.stringify(msg));
+	   },
+	   error: function(){
+	       alert("error happened.")
+	   },
+
+	   data: JSON.stringify(codeData)
+	});    
+
+}
+
+
+</script>
+</head>
+<body>
+
+<div id="editor">
+var fs = require('fs');
+var Midi = require('jsmidgen');
+var Util = require('jsmidgen').Util;
+import mm = require('./MusicMaker');
+
+var beat=128;
+var DrumNotes = mm.DrumNotes;
+var selectRandom = mm.SelectRandom;
+var makeChord = mm.MakeChord;
+var addRhythmPattern = mm.AddRhythmPattern;
+var ChordType = mm.ChordType;
+
+
+var file = new Midi.File();
+var track;
+
+track = new Midi.Track();
+track.setTempo(80);
+file.addTrack(track);
+
+var scale1 = mm.MakeScale("c4", mm.ScaleType.Spanish,2)
+
+for(var i=0; i < scale1.length; i++){
+    track.addNote(0,scale1[i],beat*2);
+}
+
+fs.writeFileSync('test.mid', file.toBytes(), 'binary');
+
+</div>
+    
+<script>
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/javascript");
+editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableSnippets: false,
+    enableLiveAutocompletion: true
+});
+
+editor.commands.addCommand({
+    name: 'buildMusic',
+    bindKey: {win: 'Ctrl-B',  mac: 'Command-B'},
+    exec: function(editor) {
+        buildMusic();
+    },
+    readOnly: false // false if this command should not apply in readOnly mode
+});
+
+
+</script>
+
+
+</body>
+</html>

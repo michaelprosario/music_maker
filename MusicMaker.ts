@@ -522,7 +522,7 @@ export class Arpeggio1 extends AbstractChordPlayer {
 }
 
 
-export class BasePLayer1 extends AbstractChordPlayer {
+export class BassPLayer1 extends AbstractChordPlayer {
 
     noteDelta = 24;
     PlayFourBarPattern(track,channel, chordChange){
@@ -543,7 +543,7 @@ export class BasePLayer1 extends AbstractChordPlayer {
     }
 }
 
-export class BasePLayer2 extends AbstractChordPlayer {
+export class BassPLayer2 extends AbstractChordPlayer {
 
     noteDelta = 24;
     PlayFourBarPattern(track,channel, chordChange){
@@ -610,7 +610,7 @@ export class RandomPlayer extends AbstractChordPlayer {
 }
 
 
-export class BasePLayer3 extends AbstractChordPlayer {
+export class BassPLayer3 extends AbstractChordPlayer {
 
     PlayFourBarPattern(track,channel, chordChange){
         track.addNote(channel, chordChange.Chord[0]-12, beat*1.5);

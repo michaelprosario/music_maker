@@ -457,58 +457,58 @@ var Arpeggio1 = (function (_super) {
     return Arpeggio1;
 }(AbstractChordPlayer));
 exports.Arpeggio1 = Arpeggio1;
-var BasePLayer1 = (function (_super) {
-    __extends(BasePLayer1, _super);
-    function BasePLayer1() {
+var BassPLayer1 = (function (_super) {
+    __extends(BassPLayer1, _super);
+    function BassPLayer1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.noteDelta = 24;
         return _this;
     }
-    BasePLayer1.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+    BassPLayer1.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 3);
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat);
     };
-    BasePLayer1.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+    BassPLayer1.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 3);
     };
-    BasePLayer1.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+    BassPLayer1.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 2);
     };
-    BasePLayer1.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+    BassPLayer1.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat * 1);
     };
-    return BasePLayer1;
+    return BassPLayer1;
 }(AbstractChordPlayer));
-exports.BasePLayer1 = BasePLayer1;
-var BasePLayer2 = (function (_super) {
-    __extends(BasePLayer2, _super);
-    function BasePLayer2() {
+exports.BassPLayer1 = BassPLayer1;
+var BassPLayer2 = (function (_super) {
+    __extends(BassPLayer2, _super);
+    function BassPLayer2() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.noteDelta = 24;
         return _this;
     }
-    BasePLayer2.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+    BassPLayer2.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
         var i = 0;
         for (i = 0; i < 8; i++)
             track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
     };
-    BasePLayer2.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+    BassPLayer2.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
         var i = 0;
         for (i = 0; i < 6; i++)
             track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
     };
-    BasePLayer2.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+    BassPLayer2.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
         var i;
         for (i = 0; i < 4; i++)
             track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
     };
-    BasePLayer2.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+    BassPLayer2.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
         track.addNote(channel, chordChange.Chord[0] - this.noteDelta, exports.beat / 2);
     };
-    return BasePLayer2;
+    return BassPLayer2;
 }(AbstractChordPlayer));
-exports.BasePLayer2 = BasePLayer2;
+exports.BassPLayer2 = BassPLayer2;
 var RandomPlayer = (function (_super) {
     __extends(RandomPlayer, _super);
     function RandomPlayer() {
@@ -539,30 +539,30 @@ var RandomPlayer = (function (_super) {
     return RandomPlayer;
 }(AbstractChordPlayer));
 exports.RandomPlayer = RandomPlayer;
-var BasePLayer3 = (function (_super) {
-    __extends(BasePLayer3, _super);
-    function BasePLayer3() {
+var BassPLayer3 = (function (_super) {
+    __extends(BassPLayer3, _super);
+    function BassPLayer3() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    BasePLayer3.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
+    BassPLayer3.prototype.PlayFourBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat);
     };
-    BasePLayer3.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
+    BassPLayer3.prototype.PlayThreeBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 1.5);
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat);
     };
-    BasePLayer3.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
+    BassPLayer3.prototype.PlayTwoBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat * 2);
     };
-    BasePLayer3.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
+    BassPLayer3.prototype.PlayOneBarPattern = function (track, channel, chordChange) {
         track.addNote(channel, chordChange.Chord[0] - 12, exports.beat);
     };
-    return BasePLayer3;
+    return BassPLayer3;
 }(AbstractChordPlayer));
-exports.BasePLayer3 = BasePLayer3;
+exports.BassPLayer3 = BassPLayer3;
 var SimplePlayer = (function (_super) {
     __extends(SimplePlayer, _super);
     function SimplePlayer() {

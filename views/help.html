@@ -1,0 +1,245 @@
+<h4>JSMIDGen reference</h4>
+
+<p>To learn more JSMIDGEN, 
+please visit <a href="https://github.com/dingram/jsmidgen" 
+target="_blank">https://github.com/dingram/jsmidgen</a></p>
+
+<b>addNote</b><br>
+var track = new Midi.Track();<br>
+track.addNote(0, 'c4', 64);<br>
+<br><br>
+
+<b>addChord</b><br>
+<xmp>
+var track = new Midi.Track();
+var c = mm.MakeChord("c5", mm.ChordType.Major);
+track.addChord(0, c, beat*4);
+</xmp>
+<br><br>
+
+<b>setTempo</b><br>
+track.setTempo(bpm[, time])
+<br><br>
+
+<b>setInstrument</b><br>
+track.setInstrument(channel, instrument[, time])
+<br><br>
+
+
+<h4>Music Maker Reference</h4>
+
+<p>You can find many of these functions in the 'MusicMaker' module.</p>
+<b>GetNoteNumber(aNote)</b>
+<li>Converts a note string to a number. Returns an integer.</li>
+<li>aNote: note to convert</li>
+<br>
+<br>
+
+
+<b>MakeChord(root,type: ChordType)</b>
+<li>Creates a chord based on note and chord type.</li>
+<li>root: This can be a note like the string "c4" or an integer.</li>
+<li>type: Type of chord.  Please refer to the 'ChordType' enumeration.</li>
+<br><br>
+
+<b>MakeScale(note, type: ScaleType, octaves: number)</b>
+<li>Creates a scale based on note and type.</li>
+<li>root: This can be a note like the string "c4" or an integer.</li>
+<li>type: Type of scale.  Please refer to the 'ScaleType' enumeration.</li>
+<br><br>
+
+<b>SelectRandom(myArray)</b>
+<li>Selects a random element from 'myArray' and returns it.</li>
+<li>myArray: is an array of stuff.</li>
+<br><br>
+
+
+<b>AddRhythmPattern(track,strPattern: string, note: number)</b>
+<li>Provides an easy way to express patterns of notes</li>
+<li>track: represents a track objects from jsmidgen</li>
+<li>strPattern: Provide a string to represent a pattern of sound.   Each character represents a 16th note.  x plays the note. - advances by a 16th note.  All other characters are ignored.</li>
+<li>note: Note to play.</li>
+<br><br>
+
+
+<b>ChordChange(chord,length:number)</b>
+<li>Class represents a chord played over a number of beats.</li>
+<li>chord: an array of notes or chord</li>
+<li>length: number of beats to play chord.</li>
+<br><br>
+
+
+<b>Chord Players</b>
+<li>You can use chord player classes to generate music patterns based on a sequency of chords or chord progression. 
+<li>Some of the chord player classes include the following: Arpeggio1, BassPLayer1, BassPLayer2, BassPLayer3, 
+    OffBeatPlayer, RandomPlayer, and SimplePlayer </li>
+<li>To use a chord player class, create an instance of the class and call the following: PlayFromChordChanges(track,chordList,channel)</li>
+<br><br>
+
+<b>Reference classes</b>
+<xmp>
+export class DrumNotes{
+	static BassDrum1: number = 35;
+	static SideStick: number = 37;
+	static SnareDrum: number = 38;
+	static HandClap: number = 39;
+	static ElectricSnare: number = 40;
+	static LowFloorTom: number = 41;
+	static HighFloorTom: number = 43;
+	static LowTom: number = 45;
+	static LowMidTom: number = 47;
+	static HiMidTom: number = 48;
+	static Tambourine: number = 54;
+	static ClosedHighHat: number = 42;
+	static OpenHighHat: number = 46;
+	static Bongo1: number = 60;
+	static Bongo2: number = 61;
+	static Congo1: number = 62;
+	static Congo2: number = 63;
+	static Congo3: number = 64;
+	static Timbale1: number = 65;
+	static Timbale2: number = 66;
+	static CowBell: number = 56;
+}
+
+export class Instruments{
+    static AcousticGrandPiano : number = 0;
+    static BrightAcousticPiano : number = 1;
+    static ElectricGrandPiano : number = 2;
+    static Honk3tonkPiano : number = 3;
+    static ElectricPiano1 : number = 4;
+    static ElectricPiano2 : number = 5;
+    static Harpsichord : number = 6;
+    static Clavi : number = 7;
+    static Celesta : number = 8;
+    static Glockenspiel : number = 9;
+    static MusicBox : number = 10;
+    static Vibraphone : number = 11;
+    static Marimba : number = 12;
+    static X13lophone : number = 13;
+    static TubularBells : number = 14;
+    static Dulcimer : number = 15;
+    static DrawbarOrgan : number = 16;
+    static PercussiveOrgan : number = 17;
+    static RockOrgan : number = 18;
+    static ChurchOrgan : number = 19;
+    static ReedOrgan : number = 20;
+    static Accordion : number = 21;
+    static Harmonica : number = 22;
+    static TangoAccordion : number = 23;
+    static AcousticGuitarN24lon : number = 24;
+    static AcousticGuitarSteel : number = 25;
+    static ElectricGuitarJazz : number = 26;
+    static ElectricGuitarClean : number = 27;
+    static ElectricGuitarMuted : number = 28;
+    static OverdrivenGuitar : number = 29;
+    static DistortionGuitar : number = 30;
+    static Guitarharmonics : number = 31;
+    static AcousticBass : number = 32;
+    static ElectricBassfinger : number = 33;
+    static ElectricBasspick : number = 34;
+    static FretlessBass : number = 35;
+    static SlapBass1 : number = 36;
+    static SlapBass2 : number = 37;
+    static S38nthBass1 : number = 38;
+    static S39nthBass2 : number = 39;
+    static Violin : number = 40;
+    static Viola : number = 41;
+    static Cello : number = 42;
+    static Contrabass : number = 43;
+    static TremoloStrings : number = 44;
+    static PizzicatoStrings : number = 45;
+    static OrchestralHarp : number = 46;
+    static Timpani : number = 47;
+    static StringEnsemble1 : number = 48;
+    static StringEnsemble2 : number = 49;
+    static S50nthStrings1 : number = 50;
+    static S51nthStrings2 : number = 51;
+    static ChoirAahs : number = 52;
+    static VoiceOohs : number = 53;
+    static S54nthVoice : number = 54;
+    static OrchestraHit : number = 55;
+    static Trumpet : number = 56;
+    static Trombone : number = 57;
+    static Tuba : number = 58;
+    static MutedTrumpet : number = 59;
+    static FrenchHorn : number = 60;
+    static BrassSection : number = 61;
+    static S62nthBrass1 : number = 62;
+    static S63nthBrass2 : number = 63;
+    static SopranoSax : number = 64;
+    static AltoSax : number = 65;
+    static TenorSax : number = 66;
+    static BaritoneSax : number = 67;
+    static Oboe : number = 68;
+    static EnglishHorn : number = 69;
+    static Bassoon : number = 70;
+    static Clarinet : number = 71;
+    static Piccolo : number = 72;
+    static Flute : number = 73;
+    static Recorder : number = 74;
+    static PanFlute : number = 75;
+    static BlownBottle : number = 76;
+    static Shakuhachi : number = 77;
+    static Whistle : number = 78;
+    static Ocarina : number = 79;
+    static Lead1square : number = 80;
+    static Lead2sawtooth : number = 81;
+    static Lead3calliope : number = 82;
+    static Lead4chiff : number = 83;
+    static Lead5charang : number = 84;
+    static Lead6voice : number = 85;
+    static Lead7fifths : number = 86;
+    static Lead8BassLead : number = 87;
+    static Pad1newage : number = 88;
+    static Pad2warm : number = 89;
+    static Pad3pol90s90nth : number = 90;
+    static Pad4choir : number = 91;
+    static Pad5bowed : number = 92;
+    static Pad6metallic : number = 93;
+    static Pad7halo : number = 94;
+    static Pad8sweep : number = 95;
+    static FX1rain : number = 96;
+    static FX2soundtrack : number = 97;
+    static FX3cr98stal : number = 98;
+    static FX4atmosphere : number = 99;
+    static FX5brightness : number = 100;
+    static FX6goblins : number = 101;
+    static FX7echoes : number = 102;
+    static FX8scifi : number = 103;
+    static Sitar : number = 104;
+    static Banjo : number = 105;
+    static Shamisen : number = 106;
+    static Koto : number = 107;
+    static Kalimba : number = 108;
+    static Bagpipe : number = 109;
+    static Fiddle : number = 110;
+    static Shanai : number = 111;
+    static TinkleBell : number = 112;
+    static Agogo : number = 113;
+    static SteelDrums : number = 114;
+    static Woodblock : number = 115;
+    static TaikoDrum : number = 116;
+    static MelodicTom : number = 117;
+    static S118nthDrum : number = 118;
+    static ReverseC119mbal : number = 119;
+    static GuitarFretNoise : number = 120;
+    static BreathNoise : number = 121;
+    static Seashore : number = 122;
+    static BirdTweet : number = 123;
+    static TelephoneRing : number = 124;
+    static Helicopter : number = 125;
+    static Applause : number = 126;
+    static Gunshot : number = 127;
+
+}
+
+export enum ChordType{
+    Major,Minor, M7, Major7, Minor7 
+}
+
+export enum ScaleType{
+    Major, Minor, MinorPentatonic, MajorPentatonic, Blues, Spanish
+}
+</xmp>
+

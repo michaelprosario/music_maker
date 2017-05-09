@@ -4,56 +4,78 @@ var fs = require('fs');
 var Midi = require('jsmidgen');
 var Util = require('jsmidgen').Util;
 var mm = require("./MusicMaker");
-var beat = 128;
 function demo4() {
     var file = new Midi.File();
+    var chordList = new Array();
+    var objChords = "c4|f4|g4".split('|');
+    var chordListA = new Array();
+    var chordListB = new Array();
+    var chordListC = new Array();
+    mm.Repeat(4, function () {
+        var chord = mm.MakeChord(mm.SelectRandom(objChords), mm.ChordType.Major7);
+        var chordChange = new mm.ChordChange(chord, 4);
+        chordListA.push(chordChange);
+    });
+    mm.Repeat(4, function () {
+        var chord = mm.MakeChord(mm.SelectRandom(objChords), mm.ChordType.Major7);
+        var chordChange = new mm.ChordChange(chord, 4);
+        chordListB.push(chordChange);
+    });
+    mm.Repeat(4, function () {
+        var chord = mm.MakeChord(mm.SelectRandom(objChords), mm.ChordType.Major7);
+        var chordChange = new mm.ChordChange(chord, 4);
+        chordListC.push(chordChange);
+    });
+    mm.Repeat(4, function () {
+        chordListA.forEach(function (chordChange) {
+            chordList.push(chordChange);
+        });
+        chordListB.forEach(function (chordChange) {
+            chordList.push(chordChange);
+        });
+        chordListC.forEach(function (chordChange) {
+            chordList.push(chordChange);
+        });
+    });
     var track;
     track = new Midi.Track();
-    track.setTempo(180);
+    track.setTempo(70);
     file.addTrack(track);
-    var chordList = new Array();
-    mm.Repeat(8, function () {
-        chordList.push(new mm.ChordChange(mm.MakeChord("e4", mm.ChordType.Minor), 4));
-        chordList.push(new mm.ChordChange(mm.MakeChord("c4", mm.ChordType.Major), 4));
-        chordList.push(new mm.ChordChange(mm.MakeChord("d4", mm.ChordType.Major), 4));
-        chordList.push(new mm.ChordChange(mm.MakeChord("c4", mm.ChordType.Major), 4));
-    });
-    var track = new Midi.Track();
-    track.setInstrument(0, mm.Instruments.Marimba);
-    var p = new mm.RandomPlayer();
-    p.PlayFromChordChanges(track, chordList, 0);
+    var player1 = new mm.SimplePlayer();
+    player1.PlayFromChordChanges(track, chordList, 0);
+    track = new Midi.Track();
     file.addTrack(track);
-    var track = new Midi.Track();
-    track.setInstrument(1, mm.Instruments.ElectricBasspick);
-    var bp = new mm.BasePLayer1();
-    bp.PlayFromChordChanges(track, chordList, 1);
-    file.addTrack(track);
+    var player2 = new mm.BassPLayer3();
+    player2.PlayFromChordChanges(track, chordList, 1);
     track = new Midi.Track();
     track.setInstrument(2, mm.Instruments.Marimba);
-    p = new mm.OffBeatPlayer();
-    p.PlayFromChordChanges(track, chordList, 2);
     file.addTrack(track);
+    var player3 = new mm.RandomPlayer();
+    player3.PlayFromChordChanges(track, chordList, 2);
     track = new Midi.Track();
     file.addTrack(track);
-    mm.Repeat(32, function () {
-        mm.AddRhythmPattern(track, "x---|x---|x---|x---", mm.DrumNotes.BassDrum1);
-    });
+    var j;
+    for (j = 0; j < chordList.length / 4; j++) {
+        mm.AddRhythmPattern(track, "x---x--x----x-x-", mm.DrumNotes.BassDrum1);
+        mm.AddRhythmPattern(track, "x---x--x----x-x-", mm.DrumNotes.BassDrum1);
+        mm.AddRhythmPattern(track, "x---x--x----x-x-", mm.DrumNotes.BassDrum1);
+        mm.AddRhythmPattern(track, "x---x--x----x-x-", mm.DrumNotes.BassDrum1);
+    }
     track = new Midi.Track();
     file.addTrack(track);
-    mm.Repeat(32, function () {
-        mm.AddRhythmPattern(track, "----|x---|----|x---", mm.DrumNotes.SnareDrum);
-    });
-    fs.writeFileSync('test.mid', file.toBytes(), 'binary');
-}
-function reviewInstruments() {
-    var track;
-    var file = new Midi.File();
+    for (j = 0; j < chordList.length / 4; j++) {
+        mm.AddRhythmPattern(track, "----x-------x---", mm.DrumNotes.SnareDrum);
+        mm.AddRhythmPattern(track, "----x-------x--x", mm.DrumNotes.SnareDrum);
+        mm.AddRhythmPattern(track, "----x-------x---", mm.DrumNotes.SnareDrum);
+        mm.AddRhythmPattern(track, "----x--x----x--x", mm.DrumNotes.SnareDrum);
+    }
     track = new Midi.Track();
     file.addTrack(track);
-    track.addNote(1, "c4", beat * 2);
-    for (var i = 0; i < 255; i++) {
-        track.setInstrument(0, i, 0);
-        track.addNote(0, i + 30, beat);
+    for (j = 0; j < chordList.length / 4; j++) {
+        mm.AddRhythmPattern(track, "x-x-x-x-x-x-x-x-", mm.DrumNotes.ClosedHighHat);
+        mm.AddRhythmPattern(track, "x-x-x-x-x-x-x-x-", mm.DrumNotes.ClosedHighHat);
+        mm.AddRhythmPattern(track, "x-x-x-x-x-x-x-x-", mm.DrumNotes.ClosedHighHat);
+        mm.AddRhythmPattern(track, "x-x-x-x-x-x-x-x-", mm.DrumNotes.ClosedHighHat);
     }
     fs.writeFileSync('test.mid', file.toBytes(), 'binary');
 }
