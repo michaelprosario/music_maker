@@ -1,3 +1,3 @@
-tsc demo5.ts
-node demo5.js
+tsc demo2.ts
+node demo2.js
 timidity test.mid
