@@ -18,7 +18,7 @@ track = new Midi.Track();
 track.setTempo(80);
 file.addTrack(track);
 
-var scale1 = mm.MakeScale("c4", mm.ScaleType.Spanish,2)
+var scale1 = mm.MakeScale("c4", mm.ScaleType.MinorPentatonic,2)
 
 for(var i=0; i<scale1.length; i++){
     track.addNote(0,scale1[i],beat*2);

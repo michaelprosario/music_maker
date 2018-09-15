@@ -243,7 +243,6 @@ export function Repeat(count: number, functionToRepeat){
     }
 }
 
-
 export function AddRhythmPattern(track,strPattern: string, note: number){
   var i=0;
   for(i=0; i<strPattern.length; i++){
